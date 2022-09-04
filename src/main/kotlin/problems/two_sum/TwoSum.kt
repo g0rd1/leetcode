@@ -10,11 +10,11 @@ fun main() {
 
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        val pairNumberToNumberAndIndex = mutableMapOf<Int, Pair<Int, Int>>()
+        val pairNumberToIndex = mutableMapOf<Int, Int>()
         nums.forEachIndexed { numIndex, num ->
-            val nullablePair = pairNumberToNumberAndIndex[num]
-            if (nullablePair != null) return intArrayOf(nullablePair.second, numIndex)
-            pairNumberToNumberAndIndex[target - num] = num to numIndex
+            val nullableIndex = pairNumberToIndex[num]
+            if (nullableIndex != null) return intArrayOf(nullableIndex, numIndex)
+            pairNumberToIndex[target - num] = numIndex
         }
         error("No solution")
     }
